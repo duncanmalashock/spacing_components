@@ -1,0 +1,12 @@
+@import "grid-container";
+
+.container__item {
+  background-color: blue;
+  color: white;
+}
+
+@for $i from 2 through 16 {
+  .container.container--grid-#{$i} {
+    @include grid-container($i, $space-l, $space-s);
+  }
+}

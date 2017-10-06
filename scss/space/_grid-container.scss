@@ -1,0 +1,9 @@
+@mixin grid-container($num-columns, $inline-space, $stack-space) {
+  margin-right: -$inline-space;
+  .container__item {
+    display: inline-block;
+    width: calc(#{100/$num-columns}% - #{$inline-space});
+    margin-right: $inline-space;
+    margin-bottom: $stack-space;
+  }
+}
