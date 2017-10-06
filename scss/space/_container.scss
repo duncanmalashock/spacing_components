@@ -1,8 +1,35 @@
-@import "grid-container";
+@each $key, $value in $spaces {
+  .container.container--inset-#{$key} {
+    padding: $value;
+  }
+}
 
-.container__item {
-  background-color: blue;
-  color: white;
+@each $key, $value in $spaces {
+  .container.container--inline-#{$key} {
+    margin-right: -$value;
+    & > .container__item {
+      display: inline-block;
+      margin-right: $value;
+    }
+  }
+}
+
+@each $key, $value in $spaces {
+  .container.container--stack-#{$key} {
+    & > .container__item:not(:last-child) {
+      margin-bottom: $value;
+    }
+  }
+}
+
+@mixin grid-container($num-columns, $inline-space, $stack-space) {
+  margin-right: -$inline-space;
+  & > .container__item {
+    display: inline-block;
+    width: calc(#{100/$num-columns}% - #{$inline-space});
+    margin-right: $inline-space;
+    margin-bottom: $stack-space;
+  }
 }
 
 @for $i from 2 through 16 {
