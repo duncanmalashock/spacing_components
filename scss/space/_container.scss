@@ -33,7 +33,11 @@
 }
 
 @for $i from 2 through 16 {
-  .container.container--grid-#{$i} {
-    @include grid-container($i, $space-l, $space-s);
+  @each $stack-key, $stack-value in $spaces {
+    @each $inline-key, $inline-value in $spaces {
+      .container.container--grid-#{$i}.container--grid-inline-#{$inline-key}.container--grid-stack-#{$stack-key} {
+        @include grid-container($i, $inline-value, $stack-value);
+      }
+    }
   }
 }
