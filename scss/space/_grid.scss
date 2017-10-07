@@ -5,6 +5,7 @@ $grid-columns-max: 16;
   display: grid;
   grid-template-columns: repeat($num-columns, 1fr);
   grid-gap: $stack-space $gutter-space;
+  align-items: center;
   .grid__item {
     @for $i from $grid-columns-min through $num-columns {
       &.grid__item--#{$i}-columns-wide {

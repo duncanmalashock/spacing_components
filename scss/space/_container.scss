@@ -10,6 +10,7 @@
     margin: -$value / 2;
     & > .container__item {
       display: inline-block;
+      vertical-align: middle;
       margin: $value / 2;
     }
   }
