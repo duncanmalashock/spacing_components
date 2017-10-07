@@ -45,7 +45,8 @@ subscriptions model =
 
 
 type Space
-    = SpaceXS
+    = SpaceZero
+    | SpaceXS
     | SpaceS
     | SpaceM
     | SpaceL
@@ -55,6 +56,9 @@ type Space
 spaceClassSuffix : Space -> String
 spaceClassSuffix space =
     case space of
+        SpaceZero ->
+            "zero"
+
         SpaceXS ->
             "xs"
 
@@ -117,6 +121,19 @@ exampleComponent string =
         [ text string ]
 
 
+exampleComponents : List (Html msg)
+exampleComponents =
+    repeat 7 (exampleComponent "Hello world!")
+
+
+repeat : Int -> a -> List a
+repeat n x =
+    if n <= 0 then
+        []
+    else
+        x :: repeat (n - 1) x
+
+
 view : Model -> Html Msg
 view model =
     container
@@ -125,56 +142,18 @@ view model =
             (StackContainer SpaceXL)
             [ container
                 (InlineContainer SpaceM SpaceM)
-                [ exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                ]
+                exampleComponents
             , container
                 (StackContainer SpaceM)
-                [ exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                ]
+                exampleComponents
             , container
                 (GridContainer 7 SpaceM SpaceM)
-                [ exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                ]
+                exampleComponents
             , container
                 (GridContainer 3 SpaceM SpaceM)
-                [ exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                ]
+                exampleComponents
             , container
                 (InlineContainer SpaceM SpaceM)
-                [ exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                , exampleComponent "Hello world!"
-                ]
+                exampleComponents
             ]
         ]
