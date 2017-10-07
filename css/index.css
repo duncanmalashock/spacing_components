@@ -6739,18 +6739,18 @@
     margin-right: 64px;
     margin-bottom: 64px; }
 
-.example-component {
-  background: black;
-  padding: 10px;
-  text-align: center;
-  color: white;
-  font-family: Helvetica, Arial, sans-serif; }
-
 html, body {
   margin: 0;
   padding: 0; }
 
 * {
   box-sizing: border-box; }
+
+.example-component {
+  background: black;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  font-family: Helvetica, Arial, sans-serif; }
 
 /*# sourceMappingURL=index.css.map */

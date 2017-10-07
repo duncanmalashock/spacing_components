@@ -1,4 +1,6 @@
-@import "space/index";
+@import "space/vars";
+@import "space/container";
+@import "space/grid";
 
 html, body {
   margin: 0;
@@ -7,4 +9,12 @@ html, body {
 
 * {
   box-sizing: border-box;
+}
+
+.example-component {
+  background: black;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
 }
