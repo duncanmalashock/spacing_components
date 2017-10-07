@@ -75,14 +75,18 @@ spaceClassSuffix space =
             "xl"
 
 
-type Container msg
+type Container
     = InsetContainer Space
     | StackContainer Space
     | InlineContainer Space Space
     | GridContainer Int Space Space
 
 
-container : Container Msg -> List (Html Msg) -> Html Msg
+
+-- type GridContainer
+
+
+container : Container -> List (Html Msg) -> Html Msg
 container c containerItems =
     let
         modifierClasses =
