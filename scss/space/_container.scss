@@ -31,29 +31,3 @@
     }
   }
 }
-
-
-
-$grid-columns-min: 2;
-$grid-columns-max: 16;
-
-@mixin grid-container($num-columns, $inline-space, $stack-space) {
-  margin-right: -$inline-space;
-  margin-bottom: -$stack-space;
-  & > .container__item {
-    display: inline-block;
-    width: calc(#{100/$num-columns}% - #{$inline-space});
-    margin-right: $inline-space;
-    margin-bottom: $stack-space;
-  }
-}
-
-@for $i from $grid-columns-min through $grid-columns-max {
-  @each $stack-key, $stack-value in $spaces {
-    @each $inline-key, $inline-value in $spaces {
-      .container.container--grid-#{$i}.container--grid-inline-#{$inline-key}.container--grid-stack-#{$stack-key} {
-        @include grid-container($i, $inline-value, $stack-value);
-      }
-    }
-  }
-}

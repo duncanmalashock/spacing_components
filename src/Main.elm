@@ -79,14 +79,34 @@ type Container
     = InsetContainer Space
     | StackContainer Space
     | InlineContainer Space Space
-    | GridContainer Int Space Space
 
 
+type GridContainerItem msg
+    = GridContainerItem Int (Html msg)
 
--- type GridContainer
+
+gridContainer : ( Int, Space, Space ) -> List (GridContainerItem msg) -> Html msg
+gridContainer ( columns, gutterSpace, stackSpace ) containerItems =
+    let
+        modifierClasses =
+            "grid-container--columns-"
+                ++ (toString columns)
+                ++ " grid-container--gutter-"
+                ++ (spaceClassSuffix gutterSpace)
+                ++ " grid-container--stack-"
+                ++ (spaceClassSuffix stackSpace)
+
+        containerItemView item =
+            case item of
+                GridContainerItem columnsWide itemHtml ->
+                    div [ class "grid-container__item" ]
+                        [ itemHtml ]
+    in
+        div [ class <| "grid-container " ++ modifierClasses ]
+            (List.map containerItemView containerItems)
 
 
-container : Container -> List (Html Msg) -> Html Msg
+container : Container -> List (Html msg) -> Html msg
 container c containerItems =
     let
         modifierClasses =
@@ -101,14 +121,6 @@ container c containerItems =
                     "container--inline-"
                         ++ (spaceClassSuffix inlineSpace)
                         ++ " container--inline-stack-"
-                        ++ (spaceClassSuffix stackSpace)
-
-                GridContainer columns gutterSpace stackSpace ->
-                    "container--grid-"
-                        ++ (toString columns)
-                        ++ " container--grid-inline-"
-                        ++ (spaceClassSuffix gutterSpace)
-                        ++ " container--grid-stack-"
                         ++ (spaceClassSuffix stackSpace)
 
         containerItemView containerItem =
@@ -150,12 +162,13 @@ view model =
             , container
                 (StackContainer SpaceM)
                 exampleComponents
-            , container
-                (GridContainer 7 SpaceM SpaceM)
-                exampleComponents
-            , container
-                (GridContainer 3 SpaceM SpaceM)
-                exampleComponents
+            , gridContainer
+                ( 7, SpaceM, SpaceM )
+                [ GridContainerItem 1 <| exampleComponent "Hello, world!"
+                , GridContainerItem 1 <| exampleComponent "Hello, world!"
+                , GridContainerItem 1 <| exampleComponent "Hello, world!"
+                , GridContainerItem 1 <| exampleComponent "Hello, world!"
+                ]
             , container
                 (InlineContainer SpaceM SpaceM)
                 exampleComponents

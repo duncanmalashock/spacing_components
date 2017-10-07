@@ -1,0 +1,23 @@
+$grid-columns-min: 2;
+$grid-columns-max: 16;
+
+@mixin grid-container($num-columns, $gutter-space, $stack-space) {
+  margin-right: -$gutter-space;
+  margin-bottom: -$stack-space;
+  & > .grid-container__item {
+    display: inline-block;
+    width: calc(#{100/$num-columns}% - #{$gutter-space});
+    margin-right: $gutter-space;
+    margin-bottom: $stack-space;
+  }
+}
+
+@for $i from $grid-columns-min through $grid-columns-max {
+  @each $stack-key, $stack-value in $spaces {
+    @each $gutter-key, $gutter-value in $spaces {
+      .grid-container.grid-container--columns-#{$i}.grid-container--gutter-#{$gutter-key}.grid-container--stack-#{$stack-key} {
+        @include grid-container($i, $gutter-value, $stack-value);
+      }
+    }
+  }
+}
