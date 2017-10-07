@@ -7,19 +7,19 @@
 
 @each $key, $value in $spaces {
   .container.container--inline-#{$key} {
-    margin-right: -$value;
+    margin: -$value / 2;
     & > .container__item {
       display: inline-block;
-      margin-right: $value;
+      margin: $value / 2;
     }
   }
 }
 
 @each $key, $value in $spaces {
   .container.container--inline-stack-#{$key} {
-    margin-bottom: -$value;
+    margin-bottom: -$value / 2;
     & > .container__item {
-      margin-bottom: $value;
+      margin-bottom: $value / 2;
     }
   }
 }

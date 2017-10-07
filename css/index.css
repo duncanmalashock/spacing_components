@@ -27,46 +27,46 @@
   overflow: hidden; }
 
 .container.container--inline-zero {
-  margin-right: 0px; }
+  margin: 0px; }
   .container.container--inline-zero > .container__item {
     display: inline-block;
-    margin-right: 0px; }
+    margin: 0px; }
 
 .container.container--inline-xs {
-  margin-right: -2px; }
+  margin: -1px; }
   .container.container--inline-xs > .container__item {
     display: inline-block;
-    margin-right: 2px; }
+    margin: 1px; }
 
 .container.container--inline-s {
-  margin-right: -4px; }
+  margin: -2px; }
   .container.container--inline-s > .container__item {
     display: inline-block;
-    margin-right: 4px; }
+    margin: 2px; }
 
 .container.container--inline-m {
-  margin-right: -8px; }
+  margin: -4px; }
   .container.container--inline-m > .container__item {
     display: inline-block;
-    margin-right: 8px; }
+    margin: 4px; }
 
 .container.container--inline-l {
-  margin-right: -16px; }
+  margin: -8px; }
   .container.container--inline-l > .container__item {
     display: inline-block;
-    margin-right: 16px; }
+    margin: 8px; }
 
 .container.container--inline-xl {
-  margin-right: -32px; }
+  margin: -16px; }
   .container.container--inline-xl > .container__item {
     display: inline-block;
-    margin-right: 32px; }
+    margin: 16px; }
 
 .container.container--inline-xxl {
-  margin-right: -64px; }
+  margin: -32px; }
   .container.container--inline-xxl > .container__item {
     display: inline-block;
-    margin-right: 64px; }
+    margin: 32px; }
 
 .container.container--inline-stack-zero {
   margin-bottom: 0px; }
@@ -74,34 +74,34 @@
     margin-bottom: 0px; }
 
 .container.container--inline-stack-xs {
-  margin-bottom: -2px; }
+  margin-bottom: -1px; }
   .container.container--inline-stack-xs > .container__item {
-    margin-bottom: 2px; }
+    margin-bottom: 1px; }
 
 .container.container--inline-stack-s {
-  margin-bottom: -4px; }
+  margin-bottom: -2px; }
   .container.container--inline-stack-s > .container__item {
-    margin-bottom: 4px; }
+    margin-bottom: 2px; }
 
 .container.container--inline-stack-m {
-  margin-bottom: -8px; }
+  margin-bottom: -4px; }
   .container.container--inline-stack-m > .container__item {
-    margin-bottom: 8px; }
+    margin-bottom: 4px; }
 
 .container.container--inline-stack-l {
-  margin-bottom: -16px; }
+  margin-bottom: -8px; }
   .container.container--inline-stack-l > .container__item {
-    margin-bottom: 16px; }
+    margin-bottom: 8px; }
 
 .container.container--inline-stack-xl {
-  margin-bottom: -32px; }
+  margin-bottom: -16px; }
   .container.container--inline-stack-xl > .container__item {
-    margin-bottom: 32px; }
+    margin-bottom: 16px; }
 
 .container.container--inline-stack-xxl {
-  margin-bottom: -64px; }
+  margin-bottom: -32px; }
   .container.container--inline-stack-xxl > .container__item {
-    margin-bottom: 64px; }
+    margin-bottom: 32px; }
 
 .container.container--stack-zero > .container__item:not(:last-child) {
   margin-bottom: 0px; }
