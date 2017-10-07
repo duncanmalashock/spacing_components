@@ -1,5 +1,8 @@
 module Main exposing (..)
 
+import Space exposing (Space(..))
+import Container exposing (Container(..), container)
+import Grid exposing (grid, GridItem(..))
 import Html exposing (Html, div, text)
 import Html.Attributes exposing (class)
 
@@ -44,93 +47,6 @@ subscriptions model =
     Sub.none
 
 
-type Space
-    = SpaceZero
-    | SpaceXS
-    | SpaceS
-    | SpaceM
-    | SpaceL
-    | SpaceXL
-
-
-spaceClassSuffix : Space -> String
-spaceClassSuffix space =
-    case space of
-        SpaceZero ->
-            "zero"
-
-        SpaceXS ->
-            "xs"
-
-        SpaceS ->
-            "s"
-
-        SpaceM ->
-            "m"
-
-        SpaceL ->
-            "l"
-
-        SpaceXL ->
-            "xl"
-
-
-type Container
-    = InsetContainer Space
-    | StackContainer Space
-    | InlineContainer Space Space
-
-
-type GridItem msg
-    = GridItem Int (Html msg)
-
-
-grid : ( Int, Space, Space ) -> List (GridItem msg) -> Html msg
-grid ( columns, gutterSpace, stackSpace ) gridItems =
-    let
-        modifierClasses =
-            "grid--columns-"
-                ++ (toString columns)
-                ++ " grid--gutter-"
-                ++ (spaceClassSuffix gutterSpace)
-                ++ " grid--stack-"
-                ++ (spaceClassSuffix stackSpace)
-
-        gridItemView item =
-            case item of
-                GridItem columnsWide itemHtml ->
-                    div [ class "grid__item" ]
-                        [ itemHtml ]
-    in
-        div [ class <| "grid " ++ modifierClasses ]
-            (List.map gridItemView gridItems)
-
-
-container : Container -> List (Html msg) -> Html msg
-container c containerItems =
-    let
-        modifierClasses =
-            case c of
-                InsetContainer insetSpace ->
-                    "container--inset-" ++ (spaceClassSuffix insetSpace)
-
-                StackContainer stackSpace ->
-                    "container--stack-" ++ (spaceClassSuffix stackSpace)
-
-                InlineContainer inlineSpace stackSpace ->
-                    "container--inline-"
-                        ++ (spaceClassSuffix inlineSpace)
-                        ++ " container--inline-stack-"
-                        ++ (spaceClassSuffix stackSpace)
-
-        containerItemView containerItem =
-            div [ class "container__item" ]
-                [ containerItem ]
-    in
-        div [ class <| "container " ++ modifierClasses ]
-            (List.map containerItemView containerItems)
-
-
 exampleComponent : String -> Html msg
 exampleComponent string =
     div [ class "example-component" ]
@@ -163,8 +79,11 @@ view model =
                 (StackContainer SpaceM)
                 exampleComponents
             , grid
-                ( 7, SpaceM, SpaceM )
+                ( 6, SpaceM, SpaceM )
                 [ GridItem 1 <| exampleComponent "Hello, world!"
+                , GridItem 1 <| exampleComponent "Hello, world!"
+                , GridItem 1 <| exampleComponent "Hello, world!"
+                , GridItem 1 <| exampleComponent "Hello, world!"
                 , GridItem 1 <| exampleComponent "Hello, world!"
                 , GridItem 1 <| exampleComponent "Hello, world!"
                 , GridItem 1 <| exampleComponent "Hello, world!"
