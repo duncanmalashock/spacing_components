@@ -15,8 +15,14 @@ $grid-columns-max: 16;
 @for $i from $grid-columns-min through $grid-columns-max {
   @each $stack-key, $stack-value in $spaces {
     @each $gutter-key, $gutter-value in $spaces {
-      .grid.grid--columns-#{$i}.grid--gutter-#{$gutter-key}.grid--stack-#{$stack-key} {
-        @include grid($i, $gutter-value, $stack-value);
+      .grid {
+        &.grid--columns-#{$i} {
+          &.grid--gutter-#{$gutter-key} {
+            &.grid--stack-#{$stack-key} {
+              @include grid($i, $gutter-value, $stack-value);
+            }
+          }
+        }
       }
     }
   }
