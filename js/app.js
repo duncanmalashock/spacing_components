@@ -8188,16 +8188,16 @@ var _user$project$Main$spaceClassSuffix = function (space) {
 			return 'xl';
 	}
 };
-var _user$project$Main$gridContainer = F2(
-	function (_p1, containerItems) {
+var _user$project$Main$grid = F2(
+	function (_p1, gridItems) {
 		var _p2 = _p1;
-		var containerItemView = function (item) {
+		var gridItemView = function (item) {
 			var _p3 = item;
 			return A2(
 				_elm_lang$html$Html$div,
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class('grid-container__item'),
+					_0: _elm_lang$html$Html_Attributes$class('grid__item'),
 					_1: {ctor: '[]'}
 				},
 				{
@@ -8208,29 +8208,29 @@ var _user$project$Main$gridContainer = F2(
 		};
 		var modifierClasses = A2(
 			_elm_lang$core$Basics_ops['++'],
-			'grid-container--columns-',
+			'grid--columns-',
 			A2(
 				_elm_lang$core$Basics_ops['++'],
 				_elm_lang$core$Basics$toString(_p2._0),
 				A2(
 					_elm_lang$core$Basics_ops['++'],
-					' grid-container--gutter-',
+					' grid--gutter-',
 					A2(
 						_elm_lang$core$Basics_ops['++'],
 						_user$project$Main$spaceClassSuffix(_p2._1),
 						A2(
 							_elm_lang$core$Basics_ops['++'],
-							' grid-container--stack-',
+							' grid--stack-',
 							_user$project$Main$spaceClassSuffix(_p2._2))))));
 		return A2(
 			_elm_lang$html$Html$div,
 			{
 				ctor: '::',
 				_0: _elm_lang$html$Html_Attributes$class(
-					A2(_elm_lang$core$Basics_ops['++'], 'grid-container ', modifierClasses)),
+					A2(_elm_lang$core$Basics_ops['++'], 'grid ', modifierClasses)),
 				_1: {ctor: '[]'}
 			},
-			A2(_elm_lang$core$List$map, containerItemView, containerItems));
+			A2(_elm_lang$core$List$map, gridItemView, gridItems));
 	});
 var _user$project$Main$container = F2(
 	function (c, containerItems) {
@@ -8312,9 +8312,9 @@ var _user$project$Main$StackContainer = function (a) {
 var _user$project$Main$InsetContainer = function (a) {
 	return {ctor: 'InsetContainer', _0: a};
 };
-var _user$project$Main$GridContainerItem = F2(
+var _user$project$Main$GridItem = F2(
 	function (a, b) {
-		return {ctor: 'GridContainerItem', _0: a, _1: b};
+		return {ctor: 'GridItem', _0: a, _1: b};
 	});
 var _user$project$Main$view = function (model) {
 	return A2(
@@ -8340,30 +8340,30 @@ var _user$project$Main$view = function (model) {
 						_1: {
 							ctor: '::',
 							_0: A2(
-								_user$project$Main$gridContainer,
+								_user$project$Main$grid,
 								{ctor: '_Tuple3', _0: 7, _1: _user$project$Main$SpaceM, _2: _user$project$Main$SpaceM},
 								{
 									ctor: '::',
 									_0: A2(
-										_user$project$Main$GridContainerItem,
+										_user$project$Main$GridItem,
 										1,
 										_user$project$Main$exampleComponent('Hello, world!')),
 									_1: {
 										ctor: '::',
 										_0: A2(
-											_user$project$Main$GridContainerItem,
+											_user$project$Main$GridItem,
 											1,
 											_user$project$Main$exampleComponent('Hello, world!')),
 										_1: {
 											ctor: '::',
 											_0: A2(
-												_user$project$Main$GridContainerItem,
+												_user$project$Main$GridItem,
 												1,
 												_user$project$Main$exampleComponent('Hello, world!')),
 											_1: {
 												ctor: '::',
 												_0: A2(
-													_user$project$Main$GridContainerItem,
+													_user$project$Main$GridItem,
 													1,
 													_user$project$Main$exampleComponent('Hello, world!')),
 												_1: {ctor: '[]'}

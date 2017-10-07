@@ -81,29 +81,29 @@ type Container
     | InlineContainer Space Space
 
 
-type GridContainerItem msg
-    = GridContainerItem Int (Html msg)
+type GridItem msg
+    = GridItem Int (Html msg)
 
 
-gridContainer : ( Int, Space, Space ) -> List (GridContainerItem msg) -> Html msg
-gridContainer ( columns, gutterSpace, stackSpace ) containerItems =
+grid : ( Int, Space, Space ) -> List (GridItem msg) -> Html msg
+grid ( columns, gutterSpace, stackSpace ) gridItems =
     let
         modifierClasses =
-            "grid-container--columns-"
+            "grid--columns-"
                 ++ (toString columns)
-                ++ " grid-container--gutter-"
+                ++ " grid--gutter-"
                 ++ (spaceClassSuffix gutterSpace)
-                ++ " grid-container--stack-"
+                ++ " grid--stack-"
                 ++ (spaceClassSuffix stackSpace)
 
-        containerItemView item =
+        gridItemView item =
             case item of
-                GridContainerItem columnsWide itemHtml ->
-                    div [ class "grid-container__item" ]
+                GridItem columnsWide itemHtml ->
+                    div [ class "grid__item" ]
                         [ itemHtml ]
     in
-        div [ class <| "grid-container " ++ modifierClasses ]
-            (List.map containerItemView containerItems)
+        div [ class <| "grid " ++ modifierClasses ]
+            (List.map gridItemView gridItems)
 
 
 container : Container -> List (Html msg) -> Html msg
@@ -162,12 +162,12 @@ view model =
             , container
                 (StackContainer SpaceM)
                 exampleComponents
-            , gridContainer
+            , grid
                 ( 7, SpaceM, SpaceM )
-                [ GridContainerItem 1 <| exampleComponent "Hello, world!"
-                , GridContainerItem 1 <| exampleComponent "Hello, world!"
-                , GridContainerItem 1 <| exampleComponent "Hello, world!"
-                , GridContainerItem 1 <| exampleComponent "Hello, world!"
+                [ GridItem 1 <| exampleComponent "Hello, world!"
+                , GridItem 1 <| exampleComponent "Hello, world!"
+                , GridItem 1 <| exampleComponent "Hello, world!"
+                , GridItem 1 <| exampleComponent "Hello, world!"
                 ]
             , container
                 (InlineContainer SpaceM SpaceM)
