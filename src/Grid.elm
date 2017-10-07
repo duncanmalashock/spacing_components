@@ -12,7 +12,7 @@ type GridItem msg
 grid : ( Int, Space, Space ) -> List (GridItem msg) -> Html msg
 grid ( columns, gutterSpace, stackSpace ) gridItems =
     let
-        modifierClasses =
+        gridModifierClasses =
             "grid--columns-"
                 ++ (toString columns)
                 ++ " grid--gutter-"
@@ -20,11 +20,15 @@ grid ( columns, gutterSpace, stackSpace ) gridItems =
                 ++ " grid--stack-"
                 ++ (Space.classSuffix stackSpace)
 
-        gridItemView item =
-            case item of
-                GridItem columnsWide itemHtml ->
-                    div [ class "grid__item" ]
-                        [ itemHtml ]
+        gridItemView (GridItem columnsWide itemHtml) =
+            let
+                itemModifierClasses =
+                    "grid__item--"
+                        ++ (toString columnsWide)
+                        ++ "-columns-wide"
+            in
+                div [ class <| "grid__item " ++ itemModifierClasses ]
+                    [ itemHtml ]
     in
-        div [ class <| "grid " ++ modifierClasses ]
+        div [ class <| "grid " ++ gridModifierClasses ]
             (List.map gridItemView gridItems)

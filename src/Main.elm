@@ -81,7 +81,7 @@ view model =
             , grid
                 ( 6, SpaceM, SpaceM )
                 [ GridItem 1 <| exampleComponent "Hello, world!"
-                , GridItem 1 <| exampleComponent "Hello, world!"
+                , GridItem 5 <| exampleComponent "Hello, world!"
                 , GridItem 1 <| exampleComponent "Hello, world!"
                 , GridItem 1 <| exampleComponent "Hello, world!"
                 , GridItem 1 <| exampleComponent "Hello, world!"

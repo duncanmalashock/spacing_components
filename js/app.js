@@ -8235,22 +8235,30 @@ var _user$project$Container$InsetContainer = function (a) {
 var _user$project$Grid$grid = F2(
 	function (_p0, gridItems) {
 		var _p1 = _p0;
-		var gridItemView = function (item) {
-			var _p2 = item;
+		var gridItemView = function (_p2) {
+			var _p3 = _p2;
+			var itemModifierClasses = A2(
+				_elm_lang$core$Basics_ops['++'],
+				'grid__item--',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					_elm_lang$core$Basics$toString(_p3._0),
+					'-columns-wide'));
 			return A2(
 				_elm_lang$html$Html$div,
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class('grid__item'),
+					_0: _elm_lang$html$Html_Attributes$class(
+						A2(_elm_lang$core$Basics_ops['++'], 'grid__item ', itemModifierClasses)),
 					_1: {ctor: '[]'}
 				},
 				{
 					ctor: '::',
-					_0: _p2._1,
+					_0: _p3._1,
 					_1: {ctor: '[]'}
 				});
 		};
-		var modifierClasses = A2(
+		var gridModifierClasses = A2(
 			_elm_lang$core$Basics_ops['++'],
 			'grid--columns-',
 			A2(
@@ -8271,7 +8279,7 @@ var _user$project$Grid$grid = F2(
 			{
 				ctor: '::',
 				_0: _elm_lang$html$Html_Attributes$class(
-					A2(_elm_lang$core$Basics_ops['++'], 'grid ', modifierClasses)),
+					A2(_elm_lang$core$Basics_ops['++'], 'grid ', gridModifierClasses)),
 				_1: {ctor: '[]'}
 			},
 			A2(_elm_lang$core$List$map, gridItemView, gridItems));
@@ -8343,7 +8351,7 @@ var _user$project$Main$view = function (model) {
 										ctor: '::',
 										_0: A2(
 											_user$project$Grid$GridItem,
-											1,
+											5,
 											_user$project$Main$exampleComponent('Hello, world!')),
 										_1: {
 											ctor: '::',

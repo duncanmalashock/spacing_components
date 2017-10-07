@@ -2,13 +2,15 @@ $grid-columns-min: 2;
 $grid-columns-max: 16;
 
 @mixin grid($num-columns, $gutter-space, $stack-space) {
-  margin-right: -$gutter-space;
-  margin-bottom: -$stack-space;
-  & > .grid__item {
-    display: inline-block;
-    width: calc(#{100/$num-columns}% - #{$gutter-space});
-    margin-right: $gutter-space;
-    margin-bottom: $stack-space;
+  display: grid;
+  grid-template-columns: repeat($num-columns, 1fr);
+  grid-gap: $stack-space $gutter-space;
+  .grid__item {
+    @for $i from $grid-columns-min through $num-columns {
+      &.grid__item--#{$i}-columns-wide {
+        grid-column-end: span $i;
+      }
+    }
   }
 }
 
