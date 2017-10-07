@@ -1,6 +1,7 @@
 @each $key, $value in $spaces {
   .container.container--inset-#{$key} {
     padding: $value;
+    overflow: hidden;
   }
 }
 
@@ -15,6 +16,15 @@
 }
 
 @each $key, $value in $spaces {
+  .container.container--inline-stack-#{$key} {
+    margin-bottom: -$value;
+    & > .container__item {
+      margin-bottom: $value;
+    }
+  }
+}
+
+@each $key, $value in $spaces {
   .container.container--stack-#{$key} {
     & > .container__item:not(:last-child) {
       margin-bottom: $value;
@@ -22,8 +32,14 @@
   }
 }
 
+
+
+$grid-columns-min: 2;
+$grid-columns-max: 16;
+
 @mixin grid-container($num-columns, $inline-space, $stack-space) {
   margin-right: -$inline-space;
+  margin-bottom: -$stack-space;
   & > .container__item {
     display: inline-block;
     width: calc(#{100/$num-columns}% - #{$inline-space});
@@ -32,7 +48,7 @@
   }
 }
 
-@for $i from 2 through 16 {
+@for $i from $grid-columns-min through $grid-columns-max {
   @each $stack-key, $stack-value in $spaces {
     @each $inline-key, $inline-value in $spaces {
       .container.container--grid-#{$i}.container--grid-inline-#{$inline-key}.container--grid-stack-#{$stack-key} {
