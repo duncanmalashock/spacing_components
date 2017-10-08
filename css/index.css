@@ -17046,6 +17046,13 @@
   .grid.grid--columns-16.grid--gutter-xxl.grid--stack-xxl .grid__item.grid__item--16-columns-wide {
     grid-column-end: span 16; }
 
+.layer-root {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
 .layer {
   position: absolute;
   width: 100%; }
@@ -17056,12 +17063,19 @@
     height: 1px;
     min-height: 100%;
     overflow-y: scroll; }
-  .layer.layer--pass-events {
+  .layer.layer--pass-events, .layer.layer--pass-events .layer__content {
     pointer-events: none !important; }
-    .layer.layer--pass-events > * {
+    .layer.layer--pass-events > *, .layer.layer--pass-events .layer__content > * {
       pointer-events: auto; }
   .layer.layer--block-events {
     pointer-events: auto; }
+
+.layer__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0; }
 
 html, body {
   margin: 0;
