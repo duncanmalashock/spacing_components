@@ -1,3 +1,7 @@
+.container {
+  @include pass-events;
+}
+
 @each $key, $value in $spaces {
   .container.container--inset-#{$key} {
     padding: $value;

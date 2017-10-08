@@ -1,3 +1,8 @@
+.container {
+  pointer-events: none !important; }
+  .container > * {
+    pointer-events: auto; }
+
 .container.container--inset-zero {
   padding: 0px;
   overflow: hidden; }
@@ -130,6 +135,11 @@
 
 .container.container--stack-xxl > .container__item:not(:last-child) {
   margin-bottom: 64px; }
+
+.grid {
+  pointer-events: none !important; }
+  .grid > * {
+    pointer-events: auto; }
 
 .grid.grid--columns-2.grid--gutter-zero.grid--stack-zero {
   display: grid;
@@ -17047,7 +17057,7 @@
     min-height: 100%;
     overflow-y: scroll; }
   .layer.layer--pass-events {
-    pointer-events: none; }
+    pointer-events: none !important; }
     .layer.layer--pass-events > * {
       pointer-events: auto; }
   .layer.layer--block-events {

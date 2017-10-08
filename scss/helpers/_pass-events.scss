@@ -1,0 +1,6 @@
+@mixin pass-events {
+  pointer-events: none !important;
+  & > * {
+    pointer-events: auto;
+  }
+}

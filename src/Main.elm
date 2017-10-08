@@ -49,7 +49,7 @@ subscriptions model =
 
 exampleComponent : String -> Html msg
 exampleComponent string =
-    div [ class "example-component" ]
+    div [ class "example-component clickable" ]
         [ text string ]
 
 
@@ -101,7 +101,7 @@ layer layerCoverage mouseEvents content =
 
 view : Model -> Html Msg
 view model =
-    div []
+    div [ class "layers" ]
         [ layer
             CoverWithOverflow
             BlockEvents

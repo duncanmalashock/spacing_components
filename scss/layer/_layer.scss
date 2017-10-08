@@ -14,10 +14,7 @@
   }
 
   &.layer--pass-events {
-    pointer-events: none;
-    & > * {
-      pointer-events: auto;
-    }
+    @include pass-events;
   }
 
   &.layer--block-events {

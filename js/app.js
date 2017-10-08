@@ -8336,7 +8336,7 @@ var _user$project$Main$exampleComponent = function (string) {
 		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('example-component'),
+			_0: _elm_lang$html$Html_Attributes$class('example-component clickable'),
 			_1: {ctor: '[]'}
 		},
 		{
@@ -8368,7 +8368,11 @@ var _user$project$Main$PassEvents = {ctor: 'PassEvents'};
 var _user$project$Main$view = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
-		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('layers'),
+			_1: {ctor: '[]'}
+		},
 		{
 			ctor: '::',
 			_0: A3(

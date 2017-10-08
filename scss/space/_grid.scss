@@ -1,6 +1,10 @@
 $grid-columns-min: 2;
 $grid-columns-max: 16;
 
+.grid {
+  @include pass-events;
+}
+
 @mixin grid($num-columns, $gutter-space, $stack-space) {
   display: grid;
   grid-template-columns: repeat($num-columns, 1fr);
