@@ -4,7 +4,8 @@ $grid-columns-max: 16;
 @mixin grid($num-columns, $gutter-space, $stack-space) {
   display: grid;
   grid-template-columns: repeat($num-columns, 1fr);
-  grid-gap: $stack-space $gutter-space;
+  grid-column-gap: $gutter-space;
+  grid-row-gap: $stack-space;
   align-items: center;
   .grid__item {
     @for $i from $grid-columns-min through $num-columns {
