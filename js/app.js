@@ -8289,55 +8289,75 @@ var _user$project$Grid$GridItem = F2(
 		return {ctor: 'GridItem', _0: a, _1: b};
 	});
 
-var _user$project$Layer$layer = F3(
-	function (layerCoverage, mouseEvents, content) {
-		var mouseModifierClasses = function () {
-			var _p0 = mouseEvents;
-			if (_p0.ctor === 'PassEvents') {
-				return 'layer--pass-events';
-			} else {
-				return 'layer--block-events';
-			}
-		}();
-		var coverageModifierClasses = function () {
-			var _p1 = layerCoverage;
-			if (_p1.ctor === 'CoverToFit') {
-				return 'layer--cover-to-fit';
-			} else {
-				return 'layer--cover-with-overflow';
-			}
-		}();
-		return A2(
-			_elm_lang$html$Html$div,
-			{
-				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$class(
+var _user$project$Layer$layer = function (_p0) {
+	var _p1 = _p0;
+	var mouseModifierClasses = function () {
+		var _p2 = _p1._2;
+		if (_p2.ctor === 'PassEvents') {
+			return 'layer--pass-events';
+		} else {
+			return 'layer--block-events';
+		}
+	}();
+	var coverageModifierClasses = function () {
+		var _p3 = _p1._1;
+		if (_p3.ctor === 'CoverToFit') {
+			return 'layer--cover-to-fit';
+		} else {
+			return 'layer--cover-with-overflow';
+		}
+	}();
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class(
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					'layer layer--name-',
 					A2(
 						_elm_lang$core$Basics_ops['++'],
-						'layer ',
+						_p1._0,
 						A2(
 							_elm_lang$core$Basics_ops['++'],
-							coverageModifierClasses,
-							A2(_elm_lang$core$Basics_ops['++'], ' ', mouseModifierClasses)))),
-				_1: {ctor: '[]'}
-			},
-			{
-				ctor: '::',
-				_0: A2(
-					_elm_lang$html$Html$div,
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$class('layer__content'),
-						_1: {ctor: '[]'}
-					},
-					content),
-				_1: {ctor: '[]'}
-			});
-	});
+							' ',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								coverageModifierClasses,
+								A2(_elm_lang$core$Basics_ops['++'], ' ', mouseModifierClasses)))))),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('layer__content'),
+					_1: {ctor: '[]'}
+				},
+				_p1._3),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Layer$layers = function (layerList) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('layers'),
+			_1: {ctor: '[]'}
+		},
+		A2(_elm_lang$core$List$map, _user$project$Layer$layer, layerList));
+};
 var _user$project$Layer$CoverWithOverflow = {ctor: 'CoverWithOverflow'};
 var _user$project$Layer$CoverToFit = {ctor: 'CoverToFit'};
 var _user$project$Layer$BlockEvents = {ctor: 'BlockEvents'};
 var _user$project$Layer$PassEvents = {ctor: 'PassEvents'};
+var _user$project$Layer$Layer = F4(
+	function (a, b, c, d) {
+		return {ctor: 'Layer', _0: a, _1: b, _2: c, _3: d};
+	});
 
 var _user$project$Main$repeat = F2(
 	function (n, x) {
@@ -8365,7 +8385,7 @@ var _user$project$Main$exampleComponents = A2(
 	_user$project$Main$repeat,
 	7,
 	_user$project$Main$exampleComponent('Hello world!'));
-var _user$project$Main$menusLayer = function (model) {
+var _user$project$Main$menusView = function (model) {
 	return {
 		ctor: '::',
 		_0: A2(
@@ -8375,7 +8395,7 @@ var _user$project$Main$menusLayer = function (model) {
 		_1: {ctor: '[]'}
 	};
 };
-var _user$project$Main$appContentLayer = function (model) {
+var _user$project$Main$appContentView = function (model) {
 	return {
 		ctor: '::',
 		_0: A2(
@@ -8407,13 +8427,13 @@ var _user$project$Main$appContentLayer = function (model) {
 										ctor: '::',
 										_0: A2(
 											_user$project$Grid$GridItem,
-											1,
+											5,
 											_user$project$Main$exampleComponent('Hello, world!')),
 										_1: {
 											ctor: '::',
 											_0: A2(
 												_user$project$Grid$GridItem,
-												5,
+												1,
 												_user$project$Main$exampleComponent('Hello, world!')),
 											_1: {
 												ctor: '::',
@@ -8470,27 +8490,23 @@ var _user$project$Main$appContentLayer = function (model) {
 	};
 };
 var _user$project$Main$view = function (model) {
-	return A2(
-		_elm_lang$html$Html$div,
+	return _user$project$Layer$layers(
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('layer-root'),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: A3(
-				_user$project$Layer$layer,
+			_0: A4(
+				_user$project$Layer$Layer,
+				'app-content',
 				_user$project$Layer$CoverWithOverflow,
 				_user$project$Layer$BlockEvents,
-				_user$project$Main$appContentLayer(model)),
+				_user$project$Main$appContentView(model)),
 			_1: {
 				ctor: '::',
-				_0: A3(
-					_user$project$Layer$layer,
+				_0: A4(
+					_user$project$Layer$Layer,
+					'menus',
 					_user$project$Layer$CoverToFit,
 					_user$project$Layer$PassEvents,
-					_user$project$Main$menusLayer(model)),
+					_user$project$Main$menusView(model)),
 				_1: {ctor: '[]'}
 			}
 		});

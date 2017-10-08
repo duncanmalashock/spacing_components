@@ -1,6 +1,6 @@
 module Main exposing (..)
 
-import Layer exposing (layer, LayerCoverage(..), LayerMouseEvents(..))
+import Layer exposing (layers, Layer(..), LayerCoverage(..), LayerMouseEvents(..))
 import Space exposing (Space(..))
 import Container exposing (Container(..), container)
 import Grid exposing (grid, GridItem(..))
@@ -67,8 +67,8 @@ repeat n x =
         x :: repeat (n - 1) x
 
 
-appContentLayer : Model -> List (Html Msg)
-appContentLayer model =
+appContentView : Model -> List (Html Msg)
+appContentView model =
     [ container
         (InsetContainer SpaceXL)
         [ container
@@ -81,8 +81,8 @@ appContentLayer model =
                 exampleComponents
             , grid
                 ( 6, SpaceM, SpaceM )
-                [ GridItem 1 <| exampleComponent "Hello, world!"
-                , GridItem 5 <| exampleComponent "Hello, world!"
+                [ GridItem 5 <| exampleComponent "Hello, world!"
+                , GridItem 1 <| exampleComponent "Hello, world!"
                 , GridItem 1 <| exampleComponent "Hello, world!"
                 , GridItem 1 <| exampleComponent "Hello, world!"
                 , GridItem 1 <| exampleComponent "Hello, world!"
@@ -97,8 +97,8 @@ appContentLayer model =
     ]
 
 
-menusLayer : Model -> List (Html Msg)
-menusLayer model =
+menusView : Model -> List (Html Msg)
+menusView model =
     [ container
         (InlineContainer SpaceM SpaceM)
         exampleComponents
@@ -107,13 +107,7 @@ menusLayer model =
 
 view : Model -> Html Msg
 view model =
-    div [ class "layer-root" ]
-        [ layer
-            CoverWithOverflow
-            BlockEvents
-            (appContentLayer model)
-        , layer
-            CoverToFit
-            PassEvents
-            (menusLayer model)
+    layers
+        [ Layer "app-content" CoverWithOverflow BlockEvents (appContentView model)
+        , Layer "menus" CoverToFit PassEvents (menusView model)
         ]
