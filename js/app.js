@@ -8289,6 +8289,40 @@ var _user$project$Grid$GridItem = F2(
 		return {ctor: 'GridItem', _0: a, _1: b};
 	});
 
+var _user$project$Main$layer = F3(
+	function (layerCoverage, mouseEvents, content) {
+		var mouseModifierClasses = function () {
+			var _p0 = mouseEvents;
+			if (_p0.ctor === 'PassEvents') {
+				return 'layer--pass-events';
+			} else {
+				return 'layer--block-events';
+			}
+		}();
+		var coverageModifierClasses = function () {
+			var _p1 = layerCoverage;
+			if (_p1.ctor === 'CoverToFit') {
+				return 'layer--cover-to-fit';
+			} else {
+				return 'layer--cover-with-overflow';
+			}
+		}();
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class(
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						'layer ',
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							coverageModifierClasses,
+							A2(_elm_lang$core$Basics_ops['++'], ' ', mouseModifierClasses)))),
+				_1: {ctor: '[]'}
+			},
+			content);
+	});
 var _user$project$Main$repeat = F2(
 	function (n, x) {
 		return (_elm_lang$core$Native_Utils.cmp(n, 0) < 1) ? {ctor: '[]'} : {
@@ -8315,57 +8349,60 @@ var _user$project$Main$exampleComponents = A2(
 	_user$project$Main$repeat,
 	7,
 	_user$project$Main$exampleComponent('Hello world!'));
+var _user$project$Main$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$none;
+};
+var _user$project$Main$update = F2(
+	function (msg, model) {
+		var _p2 = msg;
+		return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+	});
+var _user$project$Main$initialModel = {};
+var _user$project$Main$init = {ctor: '_Tuple2', _0: _user$project$Main$initialModel, _1: _elm_lang$core$Platform_Cmd$none};
+var _user$project$Main$Model = {};
+var _user$project$Main$NoOp = {ctor: 'NoOp'};
+var _user$project$Main$CoverWithOverflow = {ctor: 'CoverWithOverflow'};
+var _user$project$Main$CoverToFit = {ctor: 'CoverToFit'};
+var _user$project$Main$BlockEvents = {ctor: 'BlockEvents'};
+var _user$project$Main$PassEvents = {ctor: 'PassEvents'};
 var _user$project$Main$view = function (model) {
 	return A2(
-		_user$project$Container$container,
-		_user$project$Container$InsetContainer(_user$project$Space$SpaceXL),
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
 		{
 			ctor: '::',
-			_0: A2(
-				_user$project$Container$container,
-				_user$project$Container$StackContainer(_user$project$Space$SpaceXL),
+			_0: A3(
+				_user$project$Main$layer,
+				_user$project$Main$CoverWithOverflow,
+				_user$project$Main$BlockEvents,
 				{
 					ctor: '::',
 					_0: A2(
 						_user$project$Container$container,
-						A2(_user$project$Container$InlineContainer, _user$project$Space$SpaceM, _user$project$Space$SpaceM),
-						_user$project$Main$exampleComponents),
-					_1: {
-						ctor: '::',
-						_0: A2(
-							_user$project$Container$container,
-							_user$project$Container$StackContainer(_user$project$Space$SpaceM),
-							_user$project$Main$exampleComponents),
-						_1: {
+						_user$project$Container$InsetContainer(_user$project$Space$SpaceXL),
+						{
 							ctor: '::',
 							_0: A2(
-								_user$project$Grid$grid,
-								{ctor: '_Tuple3', _0: 6, _1: _user$project$Space$SpaceM, _2: _user$project$Space$SpaceM},
+								_user$project$Container$container,
+								_user$project$Container$StackContainer(_user$project$Space$SpaceXL),
 								{
 									ctor: '::',
 									_0: A2(
-										_user$project$Grid$GridItem,
-										1,
-										_user$project$Main$exampleComponent('Hello, world!')),
+										_user$project$Container$container,
+										A2(_user$project$Container$InlineContainer, _user$project$Space$SpaceM, _user$project$Space$SpaceM),
+										_user$project$Main$exampleComponents),
 									_1: {
 										ctor: '::',
 										_0: A2(
-											_user$project$Grid$GridItem,
-											5,
-											_user$project$Main$exampleComponent('Hello, world!')),
+											_user$project$Container$container,
+											_user$project$Container$StackContainer(_user$project$Space$SpaceM),
+											_user$project$Main$exampleComponents),
 										_1: {
 											ctor: '::',
 											_0: A2(
-												_user$project$Grid$GridItem,
-												1,
-												_user$project$Main$exampleComponent('Hello, world!')),
-											_1: {
-												ctor: '::',
-												_0: A2(
-													_user$project$Grid$GridItem,
-													1,
-													_user$project$Main$exampleComponent('Hello, world!')),
-												_1: {
+												_user$project$Grid$grid,
+												{ctor: '_Tuple3', _0: 6, _1: _user$project$Space$SpaceM, _2: _user$project$Space$SpaceM},
+												{
 													ctor: '::',
 													_0: A2(
 														_user$project$Grid$GridItem,
@@ -8375,7 +8412,7 @@ var _user$project$Main$view = function (model) {
 														ctor: '::',
 														_0: A2(
 															_user$project$Grid$GridItem,
-															1,
+															5,
 															_user$project$Main$exampleComponent('Hello, world!')),
 														_1: {
 															ctor: '::',
@@ -8383,42 +8420,73 @@ var _user$project$Main$view = function (model) {
 																_user$project$Grid$GridItem,
 																1,
 																_user$project$Main$exampleComponent('Hello, world!')),
-															_1: {ctor: '[]'}
+															_1: {
+																ctor: '::',
+																_0: A2(
+																	_user$project$Grid$GridItem,
+																	1,
+																	_user$project$Main$exampleComponent('Hello, world!')),
+																_1: {
+																	ctor: '::',
+																	_0: A2(
+																		_user$project$Grid$GridItem,
+																		1,
+																		_user$project$Main$exampleComponent('Hello, world!')),
+																	_1: {
+																		ctor: '::',
+																		_0: A2(
+																			_user$project$Grid$GridItem,
+																			1,
+																			_user$project$Main$exampleComponent('Hello, world!')),
+																		_1: {
+																			ctor: '::',
+																			_0: A2(
+																				_user$project$Grid$GridItem,
+																				1,
+																				_user$project$Main$exampleComponent('Hello, world!')),
+																			_1: {ctor: '[]'}
+																		}
+																	}
+																}
+															}
 														}
 													}
-												}
+												}),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_user$project$Container$container,
+													A2(_user$project$Container$InlineContainer, _user$project$Space$SpaceM, _user$project$Space$SpaceM),
+													_user$project$Main$exampleComponents),
+												_1: {ctor: '[]'}
 											}
 										}
 									}
 								}),
-							_1: {
-								ctor: '::',
-								_0: A2(
-									_user$project$Container$container,
-									A2(_user$project$Container$InlineContainer, _user$project$Space$SpaceM, _user$project$Space$SpaceM),
-									_user$project$Main$exampleComponents),
-								_1: {ctor: '[]'}
-							}
-						}
-					}
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
 				}),
-			_1: {ctor: '[]'}
+			_1: {
+				ctor: '::',
+				_0: A3(
+					_user$project$Main$layer,
+					_user$project$Main$CoverToFit,
+					_user$project$Main$PassEvents,
+					{
+						ctor: '::',
+						_0: A2(
+							_user$project$Container$container,
+							A2(_user$project$Container$InlineContainer, _user$project$Space$SpaceM, _user$project$Space$SpaceM),
+							_user$project$Main$exampleComponents),
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}
 		});
 };
-var _user$project$Main$subscriptions = function (model) {
-	return _elm_lang$core$Platform_Sub$none;
-};
-var _user$project$Main$update = F2(
-	function (msg, model) {
-		var _p0 = msg;
-		return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-	});
-var _user$project$Main$initialModel = {};
-var _user$project$Main$init = {ctor: '_Tuple2', _0: _user$project$Main$initialModel, _1: _elm_lang$core$Platform_Cmd$none};
 var _user$project$Main$main = _elm_lang$html$Html$program(
 	{init: _user$project$Main$init, view: _user$project$Main$view, update: _user$project$Main$update, subscriptions: _user$project$Main$subscriptions})();
-var _user$project$Main$Model = {};
-var _user$project$Main$NoOp = {ctor: 'NoOp'};
 
 var Elm = {};
 Elm['Main'] = Elm['Main'] || {};

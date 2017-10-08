@@ -1,0 +1,26 @@
+.layer {
+  position: absolute;
+  width: 100%;
+
+  &.layer--cover-to-fit {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &.layer--cover-with-overflow {
+    height: 1px;
+    min-height: 100%;
+    overflow-y: scroll;
+  }
+
+  &.layer--pass-events {
+    pointer-events: none;
+    & > * {
+      pointer-events: auto;
+    }
+  }
+
+  &.layer--block-events {
+    pointer-events: auto;
+  }
+}

@@ -66,29 +66,75 @@ repeat n x =
         x :: repeat (n - 1) x
 
 
+type LayerCoverage
+    = CoverToFit
+    | CoverWithOverflow
+
+
+type LayerMouseEvents
+    = PassEvents
+    | BlockEvents
+
+
+layer : LayerCoverage -> LayerMouseEvents -> List (Html msg) -> Html msg
+layer layerCoverage mouseEvents content =
+    let
+        coverageModifierClasses =
+            case layerCoverage of
+                CoverToFit ->
+                    "layer--cover-to-fit"
+
+                CoverWithOverflow ->
+                    "layer--cover-with-overflow"
+
+        mouseModifierClasses =
+            case mouseEvents of
+                PassEvents ->
+                    "layer--pass-events"
+
+                BlockEvents ->
+                    "layer--block-events"
+    in
+        div [ class <| "layer " ++ coverageModifierClasses ++ " " ++ mouseModifierClasses ]
+            content
+
+
 view : Model -> Html Msg
 view model =
-    container
-        (InsetContainer SpaceXL)
-        [ container
-            (StackContainer SpaceXL)
+    div []
+        [ layer
+            CoverWithOverflow
+            BlockEvents
             [ container
-                (InlineContainer SpaceM SpaceM)
-                exampleComponents
-            , container
-                (StackContainer SpaceM)
-                exampleComponents
-            , grid
-                ( 6, SpaceM, SpaceM )
-                [ GridItem 1 <| exampleComponent "Hello, world!"
-                , GridItem 5 <| exampleComponent "Hello, world!"
-                , GridItem 1 <| exampleComponent "Hello, world!"
-                , GridItem 1 <| exampleComponent "Hello, world!"
-                , GridItem 1 <| exampleComponent "Hello, world!"
-                , GridItem 1 <| exampleComponent "Hello, world!"
-                , GridItem 1 <| exampleComponent "Hello, world!"
+                (InsetContainer SpaceXL)
+                [ container
+                    (StackContainer SpaceXL)
+                    [ container
+                        (InlineContainer SpaceM SpaceM)
+                        exampleComponents
+                    , container
+                        (StackContainer SpaceM)
+                        exampleComponents
+                    , grid
+                        ( 6, SpaceM, SpaceM )
+                        [ GridItem 1 <| exampleComponent "Hello, world!"
+                        , GridItem 5 <| exampleComponent "Hello, world!"
+                        , GridItem 1 <| exampleComponent "Hello, world!"
+                        , GridItem 1 <| exampleComponent "Hello, world!"
+                        , GridItem 1 <| exampleComponent "Hello, world!"
+                        , GridItem 1 <| exampleComponent "Hello, world!"
+                        , GridItem 1 <| exampleComponent "Hello, world!"
+                        ]
+                    , container
+                        (InlineContainer SpaceM SpaceM)
+                        exampleComponents
+                    ]
                 ]
-            , container
+            ]
+        , layer
+            CoverToFit
+            PassEvents
+            [ container
                 (InlineContainer SpaceM SpaceM)
                 exampleComponents
             ]
