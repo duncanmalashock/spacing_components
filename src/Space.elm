@@ -8,6 +8,7 @@ type Space
     | SpaceM
     | SpaceL
     | SpaceXL
+    | SpaceXXL
 
 
 classSuffix : Space -> String
@@ -30,3 +31,6 @@ classSuffix space =
 
         SpaceXL ->
             "xl"
+
+        SpaceXXL ->
+            "xxl"

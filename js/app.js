@@ -8158,10 +8158,13 @@ var _user$project$Space$classSuffix = function (space) {
 			return 'm';
 		case 'SpaceL':
 			return 'l';
-		default:
+		case 'SpaceXL':
 			return 'xl';
+		default:
+			return 'xxl';
 	}
 };
+var _user$project$Space$SpaceXXL = {ctor: 'SpaceXXL'};
 var _user$project$Space$SpaceXL = {ctor: 'SpaceXL'};
 var _user$project$Space$SpaceL = {ctor: 'SpaceL'};
 var _user$project$Space$SpaceM = {ctor: 'SpaceM'};
@@ -8400,7 +8403,7 @@ var _user$project$Main$appContentView = function (model) {
 		ctor: '::',
 		_0: A2(
 			_user$project$Container$container,
-			_user$project$Container$InsetContainer(_user$project$Space$SpaceXL),
+			_user$project$Container$InsetContainer(_user$project$Space$SpaceXXL),
 			{
 				ctor: '::',
 				_0: A2(

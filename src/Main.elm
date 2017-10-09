@@ -70,7 +70,7 @@ repeat n x =
 appContentView : Model -> List (Html Msg)
 appContentView model =
     [ container
-        (InsetContainer SpaceXL)
+        (InsetContainer SpaceXXL)
         [ container
             (StackContainer SpaceXL)
             [ container
