@@ -1,4 +1,10 @@
-module Layer exposing (layers, Layer(..), LayerCoverage(..), LayerMouseEvents(..))
+module Layer
+    exposing
+        ( layers
+        , Layer(..)
+        , LayerCoverage(..)
+        , LayerMouseEvents(..)
+        )
 
 import Html exposing (Html, div)
 import Html.Attributes exposing (class)
@@ -43,7 +49,15 @@ layer (Layer layerName layerCoverage mouseEvents content) =
                 BlockEvents ->
                     "layer--block-events"
     in
-        div [ class <| "layer layer--name-" ++ layerName ++ " " ++ coverageModifierClasses ++ " " ++ mouseModifierClasses ]
+        div
+            [ class <|
+                "layer layer--name-"
+                    ++ layerName
+                    ++ " "
+                    ++ coverageModifierClasses
+                    ++ " "
+                    ++ mouseModifierClasses
+            ]
             [ div [ class "layer__content" ]
                 content
             ]
