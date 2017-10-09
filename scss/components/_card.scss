@@ -1,0 +1,67 @@
+.image {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/0/00/Crab_Nebula.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 170px;
+}
+
+.fill {
+  &.fill--light {
+    background-color: #E2E4E9;
+  }
+  &.fill--medium {
+    background-color: #C5C9D3;
+  }
+  &.fill--blue {
+    background-color: #3469a5;
+  }
+}
+
+.header {
+  font-family: "Lato";
+  &.header--s {
+    color: #7C859C;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: -4px;
+    letter-spacing: 0.5px;
+  }
+  &.header--l {
+    color: #21242B;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: -4px;
+  }
+}
+
+.paragraph {
+  font-family: "Lato";
+  &.paragraph--s {
+    color: #7C859C;
+    font-size: 14px;
+    margin-bottom: -4px;
+  }
+}
+
+.tag {
+  border-radius: 3px;
+  background-color: #C5C9D3;
+  padding: $space-s $space-m;
+}
+.tag__text {
+  font-family: "Lato";
+  color: #21242B;
+  font-size: 14px;
+}
+
+.button {
+  border-radius: 3px;
+  padding: $space-l $space-xl;
+}
+.button__text {
+  font-family: "Lato";
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: bold;
+}

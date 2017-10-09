@@ -8362,6 +8362,214 @@ var _user$project$Layer$Layer = F4(
 		return {ctor: 'Layer', _0: a, _1: b, _2: c, _3: d};
 	});
 
+var _user$project$Main$paragraph = F2(
+	function (classModifier, txt) {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class(
+					A2(_elm_lang$core$Basics_ops['++'], 'paragraph paragraph--', classModifier)),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text(txt),
+				_1: {ctor: '[]'}
+			});
+	});
+var _user$project$Main$header = F2(
+	function (classModifier, txt) {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class(
+					A2(_elm_lang$core$Basics_ops['++'], 'header header--', classModifier)),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text(txt),
+				_1: {ctor: '[]'}
+			});
+	});
+var _user$project$Main$button = function (txt) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('button fill fill--blue'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('button__text'),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(txt),
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Main$tag = function (txt) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('tag fill fill--medium'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('tag__text'),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(txt),
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Main$card = A2(
+	_elm_lang$html$Html$div,
+	{ctor: '[]'},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class('image'),
+				_1: {ctor: '[]'}
+			},
+			{ctor: '[]'}),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('fill fill--light'),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: A2(
+						_user$project$Container$container,
+						_user$project$Container$InsetContainer(_user$project$Space$SpaceL),
+						{
+							ctor: '::',
+							_0: A2(
+								_user$project$Container$container,
+								_user$project$Container$StackContainer(_user$project$Space$SpaceL),
+								{
+									ctor: '::',
+									_0: A2(
+										_user$project$Container$container,
+										_user$project$Container$StackContainer(_user$project$Space$SpaceS),
+										{
+											ctor: '::',
+											_0: A2(_user$project$Main$header, 's', 'Video'),
+											_1: {
+												ctor: '::',
+												_0: A2(_user$project$Main$header, 'l', 'Supernova'),
+												_1: {ctor: '[]'}
+											}
+										}),
+									_1: {
+										ctor: '::',
+										_0: A2(_user$project$Main$paragraph, 's', 'An astronomical event that occurs during the last stages of a massive star\'s life.'),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_user$project$Container$container,
+												A2(_user$project$Container$InlineContainer, _user$project$Space$SpaceM, _user$project$Space$SpaceM),
+												{
+													ctor: '::',
+													_0: _user$project$Main$tag('Galaxies'),
+													_1: {
+														ctor: '::',
+														_0: _user$project$Main$tag('Milky Way'),
+														_1: {
+															ctor: '::',
+															_0: _user$project$Main$tag('Speed of Light'),
+															_1: {ctor: '[]'}
+														}
+													}
+												}),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_user$project$Container$container,
+													A2(_user$project$Container$InlineContainer, _user$project$Space$SpaceM, _user$project$Space$SpaceM),
+													{
+														ctor: '::',
+														_0: _user$project$Main$button('View'),
+														_1: {ctor: '[]'}
+													}),
+												_1: {ctor: '[]'}
+											}
+										}
+									}
+								}),
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		}
+	});
+var _user$project$Main$appContentView = function (model) {
+	return {
+		ctor: '::',
+		_0: A2(
+			_user$project$Container$container,
+			_user$project$Container$InsetContainer(_user$project$Space$SpaceXXL),
+			{
+				ctor: '::',
+				_0: A2(
+					_user$project$Grid$grid,
+					{ctor: '_Tuple3', _0: 3, _1: _user$project$Space$SpaceL, _2: _user$project$Space$SpaceL},
+					{
+						ctor: '::',
+						_0: A2(_user$project$Grid$GridItem, 1, _user$project$Main$card),
+						_1: {
+							ctor: '::',
+							_0: A2(_user$project$Grid$GridItem, 1, _user$project$Main$card),
+							_1: {
+								ctor: '::',
+								_0: A2(_user$project$Grid$GridItem, 1, _user$project$Main$card),
+								_1: {
+									ctor: '::',
+									_0: A2(_user$project$Grid$GridItem, 1, _user$project$Main$card),
+									_1: {
+										ctor: '::',
+										_0: A2(_user$project$Grid$GridItem, 1, _user$project$Main$card),
+										_1: {ctor: '[]'}
+									}
+								}
+							}
+						}
+					}),
+				_1: {ctor: '[]'}
+			}),
+		_1: {ctor: '[]'}
+	};
+};
 var _user$project$Main$repeat = F2(
 	function (n, x) {
 		return (_elm_lang$core$Native_Utils.cmp(n, 0) < 1) ? {ctor: '[]'} : {
@@ -8395,100 +8603,6 @@ var _user$project$Main$menusView = function (model) {
 			_user$project$Container$container,
 			A2(_user$project$Container$InlineContainer, _user$project$Space$SpaceM, _user$project$Space$SpaceM),
 			_user$project$Main$exampleComponents),
-		_1: {ctor: '[]'}
-	};
-};
-var _user$project$Main$appContentView = function (model) {
-	return {
-		ctor: '::',
-		_0: A2(
-			_user$project$Container$container,
-			_user$project$Container$InsetContainer(_user$project$Space$SpaceXXL),
-			{
-				ctor: '::',
-				_0: A2(
-					_user$project$Container$container,
-					_user$project$Container$StackContainer(_user$project$Space$SpaceXL),
-					{
-						ctor: '::',
-						_0: A2(
-							_user$project$Container$container,
-							A2(_user$project$Container$InlineContainer, _user$project$Space$SpaceM, _user$project$Space$SpaceM),
-							_user$project$Main$exampleComponents),
-						_1: {
-							ctor: '::',
-							_0: A2(
-								_user$project$Container$container,
-								_user$project$Container$StackContainer(_user$project$Space$SpaceM),
-								_user$project$Main$exampleComponents),
-							_1: {
-								ctor: '::',
-								_0: A2(
-									_user$project$Grid$grid,
-									{ctor: '_Tuple3', _0: 6, _1: _user$project$Space$SpaceM, _2: _user$project$Space$SpaceM},
-									{
-										ctor: '::',
-										_0: A2(
-											_user$project$Grid$GridItem,
-											5,
-											_user$project$Main$exampleComponent('Hello, world!')),
-										_1: {
-											ctor: '::',
-											_0: A2(
-												_user$project$Grid$GridItem,
-												1,
-												_user$project$Main$exampleComponent('Hello, world!')),
-											_1: {
-												ctor: '::',
-												_0: A2(
-													_user$project$Grid$GridItem,
-													1,
-													_user$project$Main$exampleComponent('Hello, world!')),
-												_1: {
-													ctor: '::',
-													_0: A2(
-														_user$project$Grid$GridItem,
-														1,
-														_user$project$Main$exampleComponent('Hello, world!')),
-													_1: {
-														ctor: '::',
-														_0: A2(
-															_user$project$Grid$GridItem,
-															1,
-															_user$project$Main$exampleComponent('Hello, world!')),
-														_1: {
-															ctor: '::',
-															_0: A2(
-																_user$project$Grid$GridItem,
-																1,
-																_user$project$Main$exampleComponent('Hello, world!')),
-															_1: {
-																ctor: '::',
-																_0: A2(
-																	_user$project$Grid$GridItem,
-																	1,
-																	_user$project$Main$exampleComponent('Hello, world!')),
-																_1: {ctor: '[]'}
-															}
-														}
-													}
-												}
-											}
-										}
-									}),
-								_1: {
-									ctor: '::',
-									_0: A2(
-										_user$project$Container$container,
-										A2(_user$project$Container$InlineContainer, _user$project$Space$SpaceM, _user$project$Space$SpaceM),
-										_user$project$Main$exampleComponents),
-									_1: {ctor: '[]'}
-								}
-							}
-						}
-					}),
-				_1: {ctor: '[]'}
-			}),
 		_1: {ctor: '[]'}
 	};
 };
