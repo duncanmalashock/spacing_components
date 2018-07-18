@@ -48,17 +48,6 @@ subscriptions model =
     Sub.none
 
 
-exampleComponent : String -> Html msg
-exampleComponent string =
-    div [ class "example-component clickable" ]
-        [ text string ]
-
-
-exampleComponents : List (Html msg)
-exampleComponents =
-    repeat 7 (exampleComponent "Hello world!")
-
-
 repeat : Int -> a -> List a
 repeat n x =
     if n <= 0 then
@@ -69,25 +58,27 @@ repeat n x =
 
 card : Html msg
 card =
-    div []
-        [ div [ class "image" ] []
-        , div [ class "fill fill--light" ]
-            [ container (InsetContainer SpaceL)
-                [ container (StackContainer SpaceL)
-                    [ container (StackContainer SpaceS)
-                        [ header "s" "Video"
-                        , header "l" "Supernova"
-                        ]
-                    , paragraph "s" "An astronomical event that occurs during the last stages of a massive star's life."
-                    , container (InlineContainer SpaceM SpaceM)
-                        [ tag "Galaxies"
-                        , tag "Milky Way"
-                        , tag "Speed of Light"
-                        ]
-                    , container (InlineContainer SpaceM SpaceM)
-                        [ button "View" ]
+    container (InsetContainer SpaceL)
+        [ container (StackContainer SpaceZero)
+            [ div [ class "image" ]
+                [ text "" ]
+            , (container (StackContainer SpaceL)
+                [ container (StackContainer SpaceS)
+                    [ header "s" "Video"
+                    , header "l" "Supernova"
+                    ]
+                , paragraph "s" "An astronomical event that occurs during the last stages of a massive star's life."
+                , container (InlineContainer SpaceM SpaceM)
+                    [ tag "Galaxies"
+                    , tag "Milky Way"
+                    , tag "Speed of Light"
+                    ]
+                , grid ( 2, SpaceM, SpaceM )
+                    [ GridItem 1 (button "View")
+                    , GridItem 1 (button "Share")
                     ]
                 ]
+              )
             ]
         ]
 
@@ -135,17 +126,8 @@ appContentView model =
     ]
 
 
-menusView : Model -> List (Html Msg)
-menusView model =
-    [ container
-        (InlineContainer SpaceM SpaceM)
-        exampleComponents
-    ]
-
-
 view : Model -> Html Msg
 view model =
     layers
         [ Layer "app-content" CoverWithOverflow BlockEvents (appContentView model)
-        , Layer "menus" CoverToFit PassEvents (menusView model)
         ]
